@@ -2,20 +2,23 @@
 from msvcrt import getch
 
 import render
-from document import doc
+from document import Doc
+from editor import Editor
+from keydata import Keydata
 
 
 # Functions
-def getkey():
-    key = getch()
-    if key == b"\xe0":
-        return getch()
-    return key
+def getkey() -> Keydata:
+    key_ch = getch()
+    if key_ch == b"\xe0":
+        return Keydata(getch().decode(), True)
+    return Keydata(key_ch.decode())
 
 
 # Main
 def main():
     render.setup()
+    editor = Editor()
 
 
 if __name__ == "__main__":

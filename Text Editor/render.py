@@ -3,7 +3,7 @@ import os
 import sys
 
 import colours
-from document import doc
+from document import Doc
 
 
 # Functions
